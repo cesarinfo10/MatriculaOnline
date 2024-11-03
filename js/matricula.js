@@ -29,7 +29,7 @@ $(document).ready(function(){
   $("#docAlmunReg").prop('disabled', true);
   //$("#btnSubir").prop('disabled', true);
   $('#docSubir').hide(2000);
-
+/*
   $('#Mat').hide();
   $('#MatPay').hide();
   $('#otros').hide();
@@ -38,7 +38,7 @@ $(document).ready(function(){
   $('#tblArchivos').hide();
   $('#tblPagos').hide();
   $('#idAvisoCon').hide();
-  $('#contratoPagareDes').hide();
+  $('#contratoPagareDes').hide();*/
   cambiarDoc();
   
 });
@@ -1123,6 +1123,10 @@ function webPagar(ddl_TipoPago){
         llamarTipoDocMat(2); 
         insertarAnualContrato(3,2);
         
+      } else if(ddl_TipoPago == 3){
+        llamarTipoDocMat(2); 
+        insertarAnualContrato(3,3);
+        
       }
 
     }
@@ -1140,7 +1144,7 @@ function insertarAnualContrato(tipo, ddl_TipoPago){
       let id_carrera= $("#ddl_carrera").val();
       let monto_matricula = 0
       let monto_arancel = 0
-      if(ddl_TipoPago == 1){
+      if(ddl_TipoPago == 1 || ddl_TipoPago == 3){
         /*MATRICULA ANUAL*/
           monto_matricula = $("#ddl_carrera option:selected").attr("matricula_anual");
           monto_arancel = $("#ddl_carrera option:selected").attr("arancel_contado_anual");
@@ -1215,8 +1219,23 @@ function insertarAnualContrato(tipo, ddl_TipoPago){
                           }, "1000");
                      
                          // console.log(data['monto']);
-    
-                        } else if(data['monto'] == 0 && data['tipoPago'] == 5 && tipo != 3){
+                        // PAYPAL // (falta configurar url PayPal)
+                        }else if(data['monto'] !=0 && data['tipoPago'] == 4 && tpopago == 3){
+                          $.ajax({
+                            type: "GET",
+                            url: "function/function.php?generar_cobros&id_contrato="+data['idContrato'],
+                            data:"",
+                            success:function(data){
+                             console.log(data);
+                          }});
+                        localStorage.setItem("idContrato", data['idContrato']);
+                        $("#btnOtrosPay").prop('disabled', true);
+                        matAnticipada(localStorage.getItem('idContrato'));
+                        setTimeout(() => {    
+                          location.href="https://matriculate.umc.cl/sgu/MatriculaOnline/transbank/vendor/transbank/transbank-sdk/examples/webpay-plus/index.php?action=create&monto="+data['monto']+"&rut="+localStorage.getItem('rut')+"";
+                          }, "1000");
+
+                          } else if(data['monto'] == 0 && data['tipoPago'] == 5 && tipo != 3){
                           $.ajax({
                             type: "GET",
                             url: "function/function.php?generar_cobros&id_contrato="+data['idContrato'],
