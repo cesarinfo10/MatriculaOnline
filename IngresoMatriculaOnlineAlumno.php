@@ -6,19 +6,19 @@ $fcha = date("Y-m-d");
 
 <head>
 
-    <!-- <link rel="stylesheet" href="/sgu/MatriculaOnline/css/mat.css">
-    <link rel="stylesheet" href="/sgu/MatriculaOnline/css/bootstrap.css">
+    <link rel="stylesheet" href="/sgu/MatriculaOnlineDesa/css/mat.css">
+    <link rel="stylesheet" href="/sgu/MatriculaOnlineDesa/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
     
-    <link href="/sgu/MatriculaOnline/assets/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="/sgu/MatriculaOnline/assets/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-    <link href="/sgu/MatriculaOnline/assets/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
-    <link href="/sgu/MatriculaOnline/js/switchery/dist/switchery.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+    <link href="/sgu/MatriculaOnlineDesa/assets/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="/sgu/MatriculaOnlineDesa/assets/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/sgu/MatriculaOnlineDesa/assets/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
+    <link href="/sgu/MatriculaOnlineDesa/js/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!--<link href="/sgu/MatriculaOnline/css/sgu.css" rel="stylesheet" type="text/css"> -->
 
-    <link rel="stylesheet" href="/sgu_desa/MatriculaOnline/css/mat.css">
+    <!-- <link rel="stylesheet" href="/sgu_desa/MatriculaOnline/css/mat.css">
     <link rel="stylesheet" href="/sgu_desa/MatriculaOnline/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
 
@@ -27,7 +27,7 @@ $fcha = date("Y-m-d");
     <link href="/sgu_desa/MatriculaOnline/assets/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
     <link href="/sgu_desa/MatriculaOnline/assets/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
     <link href="/sgu_desa/MatriculaOnline/js/switchery/dist/switchery.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
 
     <!--<link href="/MatriculaOnline/css/sgu.css" rel="stylesheet" type="text/css"> -->
 </head>
@@ -314,7 +314,7 @@ $fcha = date("Y-m-d");
                             id="btnWebPay"> <img src="assets/img/webpay.png" /></button>
                     </td>
                     <td align="center" class="Titulo2">
-                        <button class="btn btn-light" style="height :95; width:280" onclick="webPagar(3)"
+                        <button class="btn btn-light" style="height :95; width:280" onclick="pruebpayPal(3)"
                             id="btnWebPay"> <img src="assets/img/paypal.png" /></button>
                     </td>
                     <td align="center" class="Titulo2" colspan="2">
@@ -519,22 +519,22 @@ $fcha = date("Y-m-d");
         </div>
     </div>
 
-    <!--<script src="/sgu/MatriculaOnline/js/jquery-1.10.1.min.js"></script>
-<script src="/sgu/MatriculaOnline/js/matricula.js"></script>
-<script src="/sgu/MatriculaOnline/js/test.js"></script>
-<script src="/sgu/MatriculaOnline/js/switchery/dist/switchery.min.js"></script>
-<script src="/sgu/MatriculaOnline/assets/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-<script src="/sgu/MatriculaOnline/js/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="/sgu/MatriculaOnline/assets/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>-->
+    <script src="/sgu/MatriculaOnlineDesa/js/jquery-1.10.1.min.js"></script>
+    <script src="/sgu/MatriculaOnlineDesa/js/matricula.js"></script>
+    <script src="/sgu/MatriculaOnlineDesa/js/test.js"></script>
+    <script src="/sgu/MatriculaOnlineDesa/js/switchery/dist/switchery.min.js"></script>
+    <script src="/sgu/MatriculaOnlineDesa/assets/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="/sgu/MatriculaOnlineDesa/js/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="/sgu/MatriculaOnlineDesa/assets/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
 
 
-    <script src="/sgu_desa/MatriculaOnline/js/jquery-1.10.1.min.js"></script>
+    <!--<script src="/sgu_desa/MatriculaOnline/js/jquery-1.10.1.min.js"></script>
     <script src="/sgu_desa/MatriculaOnline/js/matricula.js"></script>
     <script src="/sgu_desa/MatriculaOnline/js/test.js"></script>
     <script src="/sgu_desa/MatriculaOnline/js/switchery/dist/switchery.min.js"></script>
     <script src="/sgu_desa/MatriculaOnline/assets/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
     <script src="/sgu_desa/MatriculaOnline/js/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-    <script src="/sgu_desa/MatriculaOnline/assets/bootstrap-select/bootstrap-select.min.js" type="text/javascript">
+    <script src="/sgu_desa/MatriculaOnline/assets/bootstrap-select/bootstrap-select.min.js" type="text/javascript">-->
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

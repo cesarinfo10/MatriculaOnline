@@ -144,14 +144,14 @@ function precarga(){
       //  validaRUT();
       
     }else{
-    $("#idTxtNRut").val(data[1].trim());
-     $("#idTxtNDocumento").val(data[2].trim());
-     $("#texto_nombre").val(data[4].trim());
-     localStorage.setItem("nombre", data[4].trim());
-     $("#texto_apellidos").val(data[5].trim());
-     localStorage.setItem("apellido", data[5].trim());
-     $("#texto_email").val(data[6].trim());
-     $("#texto_celular").val(data[7].trim());
+    $("#idTxtNRut").val(data[1]);
+     $("#idTxtNDocumento").val(data[2]);
+     $("#texto_nombre").val(data[4]);
+     localStorage.setItem("nombre", data[4]);
+     $("#texto_apellidos").val(data[5]);
+     localStorage.setItem("apellido", data[5]);
+     $("#texto_email").val(data[6]);
+     $("#texto_celular").val(data[7]);
      bloqeuoDataSesion();
     }
  
@@ -1133,7 +1133,16 @@ function webPagar(ddl_TipoPago){
    
   })
 }
-
+function pruebpayPal(){
+  $.ajax({
+    type: "POST",
+    url: "PayPal/process_payment.php",
+    data: "",
+    success: function(data) {
+      console.log(data);
+    }
+})
+}
  /*=============================================
 INSERTAR CONTRATO ANUAL
 =============================================*/
