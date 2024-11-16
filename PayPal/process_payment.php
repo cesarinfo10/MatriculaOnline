@@ -1,4 +1,6 @@
 <?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
