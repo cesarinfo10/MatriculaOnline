@@ -1,66 +1,22 @@
 <?php
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// process_payment.php
 
-require 'paypal_config.php';
+// Recibe los datos del formulario
+$business = $_POST['business'];
+$item_name = $_POST['item_name'];
+$amount = $_POST['amount'];
+$currency_code = $_POST['currency_code'];
+$quantity = $_POST['quantity'];
+$item_number = $_POST['item_number'];
+$lc = $_POST['lc'];
+$no_shipping = $_POST['no_shipping'];
+$image_url = $_POST['image_url'];
+$return = $_POST['return'];
+$cancel_return = $_POST['cancel_return'];
 
-if (!defined('CURLOPT_SSLVERSION')) {
-    define('CURLOPT_SSLVERSION', 6); // CURL_SSLVERSION_TLSv1_2
-}
+// Genera la URL de PayPal
+$paypal_url = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=$business&item_name=$item_name&amount=$amount&currency_code=$currency_code&quantity=$quantity&item_number=$item_number&lc=$lc&no_shipping=$no_shipping&image_url=$image_url&return=$return&cancel_return=$cancel_return";
 
-use PayPal\Api\Payer;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
-use PayPal\Api\Details;
-use PayPal\Api\Amount;
-use PayPal\Api\Transaction;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Payment;
-
-$fixedAmount = 10.00; // Precio fijo de 10.00 USD
-
-$payer = new Payer();
-$payer->setPaymentMethod('paypal');
-
-$item = new Item();
-$item->setName('Producto de ejemplo')
-    ->setCurrency('USD')
-    ->setQuantity(1)
-    ->setPrice($fixedAmount); // Usar $fixedAmount en lugar de $_POST['amount']
-
-$itemList = new ItemList();
-$itemList->setItems(array($item));
-
-$details = new Details();
-$details->setSubtotal($fixedAmount); // Usar $fixedAmount en lugar de $_POST['amount']
-
-$amountObj = new Amount();
-$amountObj->setCurrency('USD')
-    ->setTotal($fixedAmount) // Usar $fixedAmount en lugar de $_POST['amount']
-    ->setDetails($details);
-
-$transaction = new Transaction();
-$transaction->setAmount($amountObj)
-    ->setItemList($itemList)
-    ->setDescription('Pago de ejemplo')
-    ->setInvoiceNumber(uniqid());
-
-$redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl("https://matriculate.umc.cl/sgu/MatriculaOnlineDesa/PayPal/execute_payment.php?success=true")
-    ->setCancelUrl("https://matriculate.umc.cl/sgu/MatriculaOnlineDesa/PayPal/execute_payment.php?success=false");
-
-$payment = new Payment();
-$payment->setIntent('sale')
-    ->setPayer($payer)
-    ->setRedirectUrls($redirectUrls)
-    ->setTransactions(array($transaction));
-
-try {
-    $payment->create($apiContext);
-    header('Location: ' . $payment->getApprovalLink());
-} catch (Exception $ex) {
-    echo 'Error: ' . $ex->getMessage();
-}
+// Devuelve la URL de PayPal
+echo json_encode(['paypal_url' => $paypal_url]);
+?>

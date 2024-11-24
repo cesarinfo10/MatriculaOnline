@@ -1134,9 +1134,11 @@ function webPagar(ddl_TipoPago){
   })
 }
 function pruebpayPal(){
+  let business =""
+
   $.ajax({
     type: "POST",
-    url: "PayPal/process_payment.php",
+    url: "https://www.sandbox.paypal.com/cgi-bin/webscr",
     data: "",
     success: function(data) {
       console.log(data);
@@ -1147,6 +1149,7 @@ function pruebpayPal(){
 INSERTAR CONTRATO ANUAL
 =============================================*/
 function insertarAnualContrato(tipo, ddl_TipoPago){
+
 
       let viaAdmision = $("#ddl_viaAdmision").val();
       let rut = $("#idTxtNRut").val();

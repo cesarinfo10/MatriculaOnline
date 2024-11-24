@@ -27,12 +27,12 @@ function login(){
                      $("#pass").val('');
                 } else if (data== 1){
                     localStorage.setItem("email", email)
-                    //location.href="http://localhost/sgu_desa/MatriculaOnline/IngresoMatriculaOnlineAlumno.php";
-                    location.href="https://matriculate.umc.cl/sgu/MatriculaOnlineDesa/IngresoMatriculaOnlineAlumno.php";
+                    location.href="http://localhost/sgu_desa/MatriculaOnlineDesaLocal/IngresoMatriculaOnlineAlumno.php";
+                    //location.href="https://matriculate.umc.cl/sgu/MatriculaOnlineDesa/IngresoMatriculaOnlineAlumno.php";
                 } else if (data== 3){
                   localStorage.setItem("email", email);
-                  //location.href="http://localhost/sgu_desa/MatriculaOnline/login/views/cambiar_pass.html"
-                  location.href=" https://matriculate.umc.cl/sgu/MatriculaOnlineDesa/login/views/cambiar_pass.html"
+                  location.href="http://localhost/sgu_desa/MatriculaOnlineDesaLocal/login/views/cambiar_pass.html"
+                  //location.href=" https://matriculate.umc.cl/sgu/MatriculaOnlineDesa/login/views/cambiar_pass.html"
                 }            
               }
   
